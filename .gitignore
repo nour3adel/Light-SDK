@@ -1,0 +1,34 @@
+# Build outputs
+bin/
+obj/
+
+# Package artifacts
+*.nupkg
+*.snupkg
+
+# Test and coverage outputs
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Local logs and diagnostics
+logs/
+*.log
+
+# User and IDE-specific files
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Local environment files
+.env
+.env.*

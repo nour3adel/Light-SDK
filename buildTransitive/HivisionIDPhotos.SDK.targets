@@ -1,0 +1,18 @@
+<Project>
+  <ItemGroup>
+    <HivisionSdkModelFiles Include="$(MSBuildThisFileDirectory)..\contentFiles\any\any\models\**\*.onnx" />
+    <HivisionSdkCascadeFile Include="$(MSBuildThisFileDirectory)..\contentFiles\any\any\haarcascade_frontalface_default.xml" />
+  </ItemGroup>
+
+  <Target Name="CopyHivisionSdkModels" BeforeTargets="Build">
+    <Copy
+      SourceFiles="@(HivisionSdkModelFiles)"
+      DestinationFiles="@(HivisionSdkModelFiles->'$(OutDir)models\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="true" />
+
+    <Copy
+      SourceFiles="@(HivisionSdkCascadeFile)"
+      DestinationFiles="@(HivisionSdkCascadeFile->'$(OutDir)haarcascade_frontalface_default.xml')"
+      SkipUnchangedFiles="true" />
+  </Target>
+</Project>
