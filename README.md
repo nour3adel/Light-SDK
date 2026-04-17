@@ -61,7 +61,6 @@ models/
 
 ```csharp
 using Light.SDK;
-using HivisionIDPhotos.Core.Models.Sdk;
 
 var options = new IdCreatorOptions
 {
@@ -114,35 +113,4 @@ Expected template assets in selected directory:
 1. template_config.json
 2. template_1.png, template_2.png, ...
 
-## Pack and Publish
 
-Pack SDK:
-
-```bash
-dotnet pack HivisionIDPhotos-CSharp/Light.SDK/Light.SDK.csproj -c Release
-```
-
-Push package:
-
-```bash
-dotnet nuget push HivisionIDPhotos-CSharp/Light.SDK/bin/Release/Light.SDK.2.0.0.nupkg --api-key <NUGET_API_KEY> --source https://api.nuget.org/v3/index.json
-```
-
-Publish model bundle to GitHub Releases as separate artifact zip.
-
-## Final Release Checklist
-
-1. Set real repository URLs in project metadata before publishing.
-2. Bump package version in csproj.
-3. Build and run sample.
-4. Pack and push NuGet package.
-5. Publish GitHub release assets for models and templates.
-6. Confirm LICENSE and copyright metadata are present.
-
-See full operational flow in [COMPLETE_SDK_GUIDE.md](COMPLETE_SDK_GUIDE.md).
-
-## Documentation Map
-
-1. Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
-2. End-to-end release and distribution: [COMPLETE_SDK_GUIDE.md](COMPLETE_SDK_GUIDE.md)
-3. Full docs index: [docs/README.md](docs/README.md)
