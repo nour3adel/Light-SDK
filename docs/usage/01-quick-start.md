@@ -3,7 +3,7 @@
 ## 1. Install
 
 ```bash
-dotnet add package Light.SDK --version 2.0.0
+dotnet add package Light.SDK --version 1.0.3
 ```
 
 ## 2. Download runtime assets

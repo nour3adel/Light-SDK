@@ -69,7 +69,7 @@ dotnet pack HivisionIDPhotos-CSharp/Light.SDK/Light.SDK.csproj -c Release
 2. Push package to GitHub Packages:
 
 ```bash
-dotnet nuget push HivisionIDPhotos-CSharp/Light.SDK/bin/Release/Light.SDK.1.0.0.nupkg --source "github" --api-key <YOUR_GITHUB_PAT_CLASSIC>
+dotnet nuget push HivisionIDPhotos-CSharp/Light.SDK/bin/Release/Light.SDK.1.0.3.nupkg --source "github" --api-key <YOUR_GITHUB_PAT_CLASSIC>
 ```
 
 Notes:
@@ -100,7 +100,7 @@ Example step:
 2. Restore/install:
 
 ```bash
-dotnet add package Light.SDK --version 1.0.0 --source "github"
+dotnet add package Light.SDK --version 1.0.3 --source "github"
 ```
 
 Or restore with both sources configured:

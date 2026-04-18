@@ -21,15 +21,15 @@
     <Company>Nour</Company>
     <Copyright>Copyright (c) 2026 Nour</Copyright>
     <PackageTags>id-photo;passport;visa;background-removal;opencv;onnx;sdk</PackageTags>
-    <PackageProjectUrl>https://github.com/nour3adel/Light-SDK</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/nour3adel/Light-SDK</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Light-SDK/Light-SDK</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Light-SDK/Light-SDK</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>Unrestricted production SDK. Models are external and provided by host applications via IdCreatorOptions model paths.</PackageReleaseNotes>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Label="Package Build Quality">
