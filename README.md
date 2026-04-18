@@ -1,70 +1,105 @@
-# Light.SDK
+<div align="center">
 
-Light.SDK is a production-grade .NET SDK for ID photo processing and generation.
-It provides a clean high-level API for photo matting, background composition, crop layout rules, beauty enhancement, watermarking, printable sheets, template overlays, and export policies.
+<img alt="Light_logo" src="icon.png" width=120 height=120>
+<h1>Light SDK</h1>
+
+
+
+</div>
+
+Light.SDK is a professional .NET SDK for ID photo generation and image processing.
+It is designed for production apps that need reliable background matting, face-aware framing, beauty adjustments, watermarking, printable layouts, and flexible export options.
 
 ## Why Light.SDK
 
-1. Production-focused API surface with fluent request configuration.
-2. Flexible runtime model loading (external models, no heavyweight NuGet payload).
-3. Multiple output targets: standard, HD, layout sheet, template render.
-4. Dynamic template workflow for built-in and user-uploaded templates.
-5. Designed for app teams shipping desktop, server, and cloud workflows.
+1. Production-ready API focused on ID photo workflows.
+2. Lightweight NuGet package with external model delivery.
+3. Clean integration for desktop, server, and cloud applications.
+4. Strong support for passport, visa, and custom document photo standards.
 
-## Core Features
-
-1. ID photo generation with face-aware framing.
-2. Background matting and color replacement (solid and gradients).
-3. Face alignment and top-distance/head-ratio controls.
-4. Beauty pipeline (whitening, brightness, contrast, saturation, sharpen).
-5. Watermark rendering with rotation, opacity, spacing, and color controls.
-6. Printable layout sheet generation with cut lines.
-7. Template rendering similar to Python template plugin behavior.
-8. Export options for JPEG/PNG, DPI scaling, and target-size compression.
-9. Strongly-typed presets for size and model selection.
-
-## Install from NuGet
+## Install
 
 ```bash
 dotnet add package Light.SDK
 ```
 
-## Download Models from GitHub Releases
+## Requirements
 
-Light.SDK NuGet package is intentionally lightweight and does not include model binaries.
+1. .NET 10 runtime.
+2. Model files downloaded from the official release page.
+3. A valid local path where models are extracted.
 
-Create a release workflow like this in your GitHub repository:
+## Models Download (Required)
 
-1. Publish Light.SDK to NuGet.
-2. Upload model bundle zip files to GitHub Releases.
-3. Ask users to download the matching model bundle version.
+The NuGet package is intentionally lightweight and does not include model binaries.
 
-Recommended release asset naming:
+Download models from the official release assets:
 
-1. light-sdk-models-v2.0.0.zip
-2. light-sdk-templates-v2.0.0.zip (optional)
+- https://github.com/nour3adel/Light-SDK/releases/tag/v0.0.0
 
-Recommended extracted model folder structure:
+After download, extract models into this folder layout:
 
 ```text
 models/
   detector models/
     Light_faceDetect.lsdkm
   matting models/
-    Light.lite.lsdkm
     Light.Huma.lsdkm
+    Light.lite.lsdkm
     Light.M01.lsdkm
-    ...
+    Light.M02.lsdkm
+    Light.M03.lsdkm
+    Light.M04.lsdkm
+    Light.M05.lsdkm
+    Light.M06.lsdkm
+    Light.M07.lsdkm
+    Light.M08.lsdkm
+    Light.M09.lsdkm
+    Light.M10.lsdkm
+    Light.M11.lsdkm
+    Light.M12.lsdkm
+    Light.M13.lsdkm
+    Light.M14.lsdkm
+    Light.M15.lsdkm
+    Light.M16.lsdkm
+    Light.M17.lsdkm
+    Light.M18.lsdkm
+    Light.X01.lsdkm
+    Light.X02.lsdkm
+    Light.X03.lsdkm
+    Light.X04.lsdkm
+    Light.X05.lsdkm
+    Light.X06.lsdkm
+    Light.X07.lsdkm
+    Light.X08.lsdkm
+    Light.X09.lsdkm
+    Light.X10.lsdkm
+    Light.X11.lsdkm
 ```
 
-## Quick Start
+## Quick Start Guide
+
+### 1. Install the package
+
+```bash
+dotnet add package Light.SDK
+```
+
+### 2. Download and extract models
+
+1. Open the official release page:
+   https://github.com/nour3adel/Light-SDK/releases/tag/v0.0.0
+2. Download the model archive.
+3. Extract it to a local folder, for example: `D:\light-sdk\models`
+
+### 3. Create your first ID photo
 
 ```csharp
+using HivisionIDPhotos.Core.Models.Sdk;
 using Light.SDK;
 
 var options = new IdCreatorOptions
 {
-    // Host-managed model root (downloaded from your GitHub Releases).
     ModelsRootPath = @"D:\light-sdk\models"
 };
 
@@ -75,23 +110,18 @@ var result = creator.CreateFromFile("input.jpg", cfg => cfg
     .WithBackgroundColor("FFFFFF")
     .WithModels(FaceDetectionModelPreset.LightFaceDetect, MattingModelPreset.LightLite)
     .WithFaceLayout(headRatio: 0.2, topDistance: 0.12, faceAlign: true)
-    .WithBeauty(whitening: 2, brightness: 3, contrast: 3, saturation: 2, sharpen: 1)
-    .WithWatermark(text: "Light SDK", fontSize: 18, opacity: 0.15, angle: 30, colorHex: "8A8A8A", space: 30)
-    .TryTemplate("template_1", "templates")
-    .WithLayoutSheet(LayoutPaperKind.FiveInch, dpi: 300)
-    .WithStandardExport(OutputImageFormat.Jpeg, dpi: 300)
-    .WithHdExport(OutputImageFormat.Jpeg, dpi: 300)
-    .WithLayoutExport(OutputImageFormat.Jpeg, dpi: 300));
+    .WithStandardExport(OutputImageFormat.Jpeg, dpi: 300));
 
-File.WriteAllBytes("output_standard.jpg", result.StandardImageBytes);
-File.WriteAllBytes("output_hd.jpg", result.HdImageBytes);
-if (result.LayoutImageBytes is not null) File.WriteAllBytes("output_layout.jpg", result.LayoutImageBytes);
-if (result.TemplateImageBytes is not null) File.WriteAllBytes("output_template.jpg", result.TemplateImageBytes);
+File.WriteAllBytes("output.jpg", result.StandardImageBytes);
 ```
 
-## Dynamic Path Resolution
+## Notes
 
-### Models
+1. Keep SDK version and downloaded model bundle version aligned.
+2. If model paths are wrong, processing will fail at runtime.
+3. For best quality, use high-resolution input images with a clear front-facing portrait.
+
+## Runtime Model Resolution
 
 Model resolution order:
 
@@ -112,5 +142,3 @@ Expected template assets in selected directory:
 
 1. template_config.json
 2. template_1.png, template_2.png, ...
-
-

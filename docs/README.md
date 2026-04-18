@@ -27,6 +27,7 @@ This folder contains operational and feature documentation for implementing, dis
 - `usage/05-feature-beauty-watermark-export.md`
 - `usage/06-models-and-presets.md`
 - `usage/07-best-practices.md`
+- `usage/08-github-packages-registry.md`
 
 ## Master guides
 
