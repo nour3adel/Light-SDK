@@ -35,7 +35,7 @@ The NuGet package is intentionally lightweight and does not include model binari
 
 Download models from the official release assets:
 
-- https://github.com/LightPxl/LightPxl/releases/tag/v0.0.0
+- https://github.com/LightPxl/Light.SDK/releases/tag/v0.0.0
 
 After download, extract models into this folder layout:
 
@@ -90,7 +90,7 @@ Package on NuGet.org: https://www.nuget.org/packages/Light.SDK
 ### 2. Download and extract models
 
 1. Open the official release page:
-   https://github.com/LightPxl/LightPxl/releases
+   https://github.com/LightPxl/Light.SDK/releases
 2. Download the model archive.
 3. Extract it to a local folder, for example: `D:\lightpxl\models`
 
@@ -123,24 +123,3 @@ File.WriteAllBytes("output.jpg", result.StandardImageBytes);
 2. If model paths are wrong, processing will fail at runtime.
 3. For best quality, use high-resolution input images with a clear front-facing portrait.
 
-## Runtime Model Resolution
-
-Model resolution order:
-
-1. IdCreatorOptions.RetinaFaceModelPath and IdCreatorOptions.MattingModelsDirectory
-2. IdCreatorOptions.ModelsRootPath
-3. Environment variables RETINAFACE_MODEL_PATH and MATTING_MODEL_DIR
-4. Runtime auto-discovery near application base directory
-
-### Templates
-
-Template assets resolution order:
-
-1. TryTemplate(templateName, assetsDirectory)
-2. Environment variable LIGHT_TEMPLATE_ASSETS_DIR
-3. Default AppContext.BaseDirectory
-
-Expected template assets in selected directory:
-
-1. template_config.json
-2. template_1.png, template_2.png, ...

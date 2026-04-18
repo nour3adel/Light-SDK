@@ -17,12 +17,12 @@
     <PackageId>Light.SDK</PackageId>
     <Title>Light SDK</Title>
     <Description>Professional, scalable, and maintainable SDK for ID photo generation: background removal, face alignment, size presets, beauty tuning, layout sheets, watermarking, and export policies.</Description>
-    <Authors>Nour</Authors>
-    <Company>Nour</Company>
-    <Copyright>Copyright (c) 2026 Nour</Copyright>
+    <Authors>LightPxl</Authors>
+    <Company>LightPxl</Company>
+    <Copyright>Copyright (c) 2026 LightPxl</Copyright>
     <PackageTags>id-photo;passport;visa;background-removal;opencv;onnx;sdk;lightpxl</PackageTags>
-    <PackageProjectUrl>https://github.com/LightPxl/LightPxl</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/LightPxl/LightPxl</RepositoryUrl>
+    <PackageProjectUrl>https://lightpxl.github.io/Light-SDK/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LightPxl/Light-SDK</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
