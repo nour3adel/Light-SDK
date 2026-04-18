@@ -4,7 +4,6 @@
 <h1>Light SDK</h1>
 
 
-
 </div>
 
 Light SDK is a professional .NET SDK for ID photo generation and image processing.
@@ -35,8 +34,7 @@ The NuGet package is intentionally lightweight and does not include model binari
 
 Download models from the official release assets:
 
-- https://github.com/LightPxl/Light.SDK/releases/tag/v0.0.0
-
+- https://github.com/LightPxl/Light-SDK/releases/tag/v0.0.0
 After download, extract models into this folder layout:
 
 ```text
@@ -90,7 +88,7 @@ Package on NuGet.org: https://www.nuget.org/packages/Light.SDK
 ### 2. Download and extract models
 
 1. Open the official release page:
-   https://github.com/LightPxl/Light.SDK/releases
+   https://github.com/LightPxl/Light-SDK/releases
 2. Download the model archive.
 3. Extract it to a local folder, for example: `D:\lightpxl\models`
 
