@@ -1,16 +1,16 @@
 <div align="center">
 
-<img alt="Light_logo" src="icon.png" width=120 height=120>
+<img alt="Light SDK logo" src="icon.png" width=120 height=120>
 <h1>Light SDK</h1>
 
 
 
 </div>
 
-Light.SDK is a professional .NET SDK for ID photo generation and image processing.
+Light SDK is a professional .NET SDK for ID photo generation and image processing.
 It is designed for production apps that need reliable background matting, face-aware framing, beauty adjustments, watermarking, printable layouts, and flexible export options.
 
-## Why Light.SDK
+## Why Light SDK
 
 1. Production-ready API focused on ID photo workflows.
 2. Lightweight NuGet package with external model delivery.
@@ -35,7 +35,7 @@ The NuGet package is intentionally lightweight and does not include model binari
 
 Download models from the official release assets:
 
-- https://github.com/Light-SDK/Light-SDK/releases/tag/v0.0.0
+- https://github.com/LightPxl/LightPxl/releases/tag/v0.0.0
 
 After download, extract models into this folder layout:
 
@@ -85,12 +85,14 @@ models/
 dotnet add package Light.SDK
 ```
 
+Package on NuGet.org: https://www.nuget.org/packages/Light.SDK
+
 ### 2. Download and extract models
 
 1. Open the official release page:
-  https://github.com/Light-SDK/Light-SDK/releases/tag/v0.0.0
+   https://github.com/LightPxl/LightPxl/releases
 2. Download the model archive.
-3. Extract it to a local folder, for example: `D:\light-sdk\models`
+3. Extract it to a local folder, for example: `D:\lightpxl\models`
 
 ### 3. Create your first ID photo
 
@@ -100,7 +102,7 @@ using Light.SDK;
 
 var options = new IdCreatorOptions
 {
-    ModelsRootPath = @"D:\light-sdk\models"
+    ModelsRootPath = @"D:\lightpxl\models"
 };
 
 using var creator = new IdCreator(options);

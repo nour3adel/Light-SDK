@@ -1,6 +1,6 @@
 # Models and Size Presets
 
-Light.SDK uses external model files distributed separately from NuGet.
+Light SDK uses external model files distributed separately from NuGet.
 Recommended distribution is GitHub Releases model bundles versioned alongside the SDK package.
 
 ## Face detection model

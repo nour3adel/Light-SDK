@@ -1,6 +1,6 @@
-# Light.SDK Documentation
+# Light SDK Documentation
 
-This folder contains operational and feature documentation for implementing, distributing, and maintaining Light.SDK.
+This folder contains operational and feature documentation for implementing, distributing, and maintaining Light SDK.
 
 ## Recommended Reading Order
 

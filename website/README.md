@@ -1,6 +1,6 @@
-# Light SDK Website
+# LightPxl Website
 
-This folder contains the modern static landing page for Light SDK.
+This folder contains the modern static landing page for LightPxl.
 
 ## Local preview
 

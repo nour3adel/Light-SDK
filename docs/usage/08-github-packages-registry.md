@@ -1,13 +1,13 @@
 # Working with the GitHub Packages NuGet Registry
 
-This guide explains how to publish and consume Light.SDK using GitHub Packages (NuGet registry on GitHub).
+This guide explains how to publish and consume Light SDK using GitHub Packages (NuGet registry on GitHub).
 
 ## 1. Registry URL
 
 For this repository, the feed URL is:
 
 ```text
-https://nuget.pkg.github.com/nour3adel/index.json
+https://nuget.pkg.github.com/LightPxl/index.json
 ```
 
 General format:
@@ -34,7 +34,7 @@ Create a token with at least:
 Add GitHub Packages as a source:
 
 ```bash
-dotnet nuget add source --username nour3adel --password <YOUR_GITHUB_PAT_CLASSIC> --store-password-in-clear-text --name github "https://nuget.pkg.github.com/nour3adel/index.json"
+dotnet nuget add source --username LightPxl --password <YOUR_GITHUB_PAT_CLASSIC> --store-password-in-clear-text --name github "https://nuget.pkg.github.com/LightPxl/index.json"
 ```
 
 ## 4. Authenticate via nuget.config (alternative)
@@ -47,29 +47,29 @@ Create a nuget.config file:
   <packageSources>
     <clear />
     <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
-    <add key="github" value="https://nuget.pkg.github.com/nour3adel/index.json" />
+    <add key="github" value="https://nuget.pkg.github.com/LightPxl/index.json" />
   </packageSources>
   <packageSourceCredentials>
     <github>
-      <add key="Username" value="nour3adel" />
+      <add key="Username" value="LightPxl" />
       <add key="ClearTextPassword" value="YOUR_GITHUB_PAT_CLASSIC" />
     </github>
   </packageSourceCredentials>
 </configuration>
 ```
 
-## 5. Publish Light.SDK to GitHub Packages
+## 5. Publish Light SDK to GitHub Packages
 
 1. Build and pack:
 
 ```bash
-dotnet pack HivisionIDPhotos-CSharp/Light.SDK/Light.SDK.csproj -c Release
+dotnet pack Light.SDK.csproj -c Release
 ```
 
 2. Push package to GitHub Packages:
 
 ```bash
-dotnet nuget push HivisionIDPhotos-CSharp/Light.SDK/bin/Release/Light.SDK.1.0.3.nupkg --source "github" --api-key <YOUR_GITHUB_PAT_CLASSIC>
+dotnet nuget push bin/Release/Light.SDK.1.0.4.nupkg --source "github" --api-key <YOUR_GITHUB_PAT_CLASSIC>
 ```
 
 Notes:
@@ -85,13 +85,13 @@ Example step:
 
 ```yaml
 - name: Add GitHub Packages source
-  run: dotnet nuget add source --username nour3adel --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/nour3adel/index.json"
+  run: dotnet nuget add source --username LightPxl --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/LightPxl/index.json"
 
 - name: Pack
-  run: dotnet pack HivisionIDPhotos-CSharp/Light.SDK/Light.SDK.csproj -c Release
+  run: dotnet pack Light.SDK.csproj -c Release
 
 - name: Push
-  run: dotnet nuget push HivisionIDPhotos-CSharp/Light.SDK/bin/Release/*.nupkg --source github --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
+  run: dotnet nuget push bin/Release/*.nupkg --source github --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 ```
 
 ## 7. Install from GitHub Packages
@@ -100,7 +100,7 @@ Example step:
 2. Restore/install:
 
 ```bash
-dotnet add package Light.SDK --version 1.0.3 --source "github"
+dotnet add package LightPxl --version 1.0.4 --source "github"
 ```
 
 Or restore with both sources configured:
@@ -117,14 +117,14 @@ When using both nuget.org and GitHub Packages, use package source mapping:
 <configuration>
   <packageSources>
     <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
-    <add key="github" value="https://nuget.pkg.github.com/nour3adel/index.json" />
+    <add key="github" value="https://nuget.pkg.github.com/LightPxl/index.json" />
   </packageSources>
   <packageSourceMapping>
     <packageSource key="nuget.org">
       <package pattern="*" />
     </packageSource>
     <packageSource key="github">
-      <package pattern="Light.SDK*" />
+      <package pattern="LightPxl*" />
     </packageSource>
   </packageSourceMapping>
 </configuration>
@@ -138,14 +138,14 @@ If RepositoryUrl is set in Light.SDK.csproj, GitHub can automatically associate 
 
 Current value:
 
-1. https://github.com/nour3adel/Light-SDK
+1. https://github.com/LightPxl/LightPxl
 
 ## 10. Release Model Assets
 
 GitHub Packages stores the SDK package.
 Model and template bundles should stay in GitHub Releases assets:
 
-1. light-sdk-models-v<version>.zip
-2. light-sdk-templates-v<version>.zip
+1. lightpxl-models-v<version>.zip
+2. lightpxl-templates-v<version>.zip
 
 This keeps package install lightweight while still giving users full runtime assets.
