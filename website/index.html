@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Light SDK - Professional ID Photo SDK for .NET</title>
+  <meta name="description" content="Light SDK is a professional .NET SDK for ID photo generation, background matting, and face-aware image processing." />
+  <meta property="og:title" content="Light SDK" />
+  <meta property="og:description" content="Professional .NET SDK for ID photo generation and image processing workflows." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Light SDK home">
+        <img class="brand-logo" src="assets/icon.png" alt="Light SDK logo" width="34" height="34" />
+        <span class="brand-text">Light SDK</span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="#quick-start">Quick Start</a>
+        <a href="#comparison">Before/After</a>
+      </nav>
+      <a class="btn btn-outline" href="https://github.com/nour3adel/Light-SDK" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Production .NET SDK</p>
+        <h1>Build perfect ID photos with a clean developer API.</h1>
+        <p class="lead">
+          Light SDK delivers face-aware framing, background removal, beauty controls,
+          and export-ready outputs for passport, visa, and official document workflows.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#quick-start">Get Started</a>
+          <a class="btn btn-ghost" href="https://www.nuget.org/packages/Light.SDK" target="_blank" rel="noreferrer">View on NuGet</a>
+        </div>
+      </div>
+      <div class="hero-panel reveal-delay">
+        <div class="terminal-card" role="img" aria-label="Light SDK install and usage snippet">
+          <p class="terminal-title">Install + run</p>
+          <div class="terminal-shell">
+            <div class="terminal-top">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <code class="install-chip">dotnet add package Light.SDK</code>
+            <pre class="terminal-snippet"><code>using var creator = new IdCreator(new IdCreatorOptions
+{
+    ModelsRootPath = @"D:\\light-sdk\\models"
+});</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Core Capabilities</p>
+        <h2>Everything needed for modern ID-photo apps.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card reveal-stagger">
+          <h3>Face-Aware Framing</h3>
+          <p>Stable head-ratio and top-distance placement tuned for document standards.</p>
+        </article>
+        <article class="feature-card reveal-stagger">
+          <h3>AI Matting</h3>
+          <p>Clean subject extraction with model presets for quality and performance needs.</p>
+        </article>
+        <article class="feature-card reveal-stagger">
+          <h3>Export Controls</h3>
+          <p>JPEG/PNG output, DPI options, and print-oriented layout generation.</p>
+        </article>
+        <article class="feature-card reveal-stagger">
+          <h3>Fluent Builder API</h3>
+          <p>Readable request chaining for size presets, beauty tuning, templates, and more.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="comparison" class="container section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quality Preview</p>
+        <h2>Before and after, in one interactive slider.</h2>
+      </div>
+
+      <div class="compare-card reveal">
+        <div class="compare-frame" id="compareFrame">
+          <img src="assets/After.jpg" alt="Before processing" class="compare-image base" />
+          <div class="compare-overlay" id="compareOverlay">
+            <img src="assets/Before.jpg" alt="After Light SDK processing" class="compare-image" />
+          </div>
+          <div class="compare-divider" id="compareDivider" role="slider" aria-label="Before and after splitter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55" tabindex="0">
+            <span class="compare-handle" aria-hidden="true">↔</span>
+          </div>
+          <span class="badge badge-before">Before</span>
+          <span class="badge badge-after">After</span>
+        </div>
+        <p class="drag-hint">Drag the center handle to compare</p>
+      </div>
+    </section>
+
+    <section id="quick-start" class="container section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quick Start</p>
+        <h2>Ship your first flow in minutes.</h2>
+      </div>
+
+      <div class="quick-grid">
+        <article class="quick-step reveal-stagger">
+          <h3>1. Install</h3>
+          <pre><code>dotnet add package Light.SDK</code></pre>
+        </article>
+        <article class="quick-step reveal-stagger">
+          <h3>2. Download Models</h3>
+          <p>Get model assets from GitHub Releases and extract them locally.</p>
+          <a href="https://github.com/nour3adel/Light-SDK/releases/tag/v0.0.0" target="_blank" rel="noreferrer">Open release assets</a>
+        </article>
+        <article class="quick-step reveal-stagger full">
+          <h3>3. Generate Output</h3>
+          <pre><code>using HivisionIDPhotos.Core.Models.Sdk;
+using Light.SDK;
+
+using var creator = new IdCreator(new IdCreatorOptions
+{
+    ModelsRootPath = @"D:\\light-sdk\\models"
+});
+
+var result = creator.CreateFromFile("input.jpg", cfg => cfg
+    .WithSizePreset(IdPhotoSizePreset.AmericanVisa)
+    .WithBackgroundColor("FFFFFF")
+    .WithModels(FaceDetectionModelPreset.LightFaceDetect, MattingModelPreset.LightLite)
+    .WithStandardExport(OutputImageFormat.Jpeg, dpi: 300));
+
+File.WriteAllBytes("output.jpg", result.StandardImageBytes);</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section cta reveal">
+      <h2>Build production-ready photo workflows with confidence.</h2>
+      <p>Light SDK is optimized for real-world document use cases and professional image quality.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/nour3adel/Light-SDK" target="_blank" rel="noreferrer">Explore Repository</a>
+        <a class="btn btn-outline" href="https://github.com/nour3adel/Light-SDK/releases/tag/v0.0.0" target="_blank" rel="noreferrer">Download Models</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>Light SDK © 2026. Built for modern .NET teams.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
